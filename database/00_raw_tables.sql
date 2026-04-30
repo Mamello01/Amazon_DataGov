@@ -114,4 +114,16 @@ SELECT *
 FROM raw.olist_reviews_raw
 LIMIT 10;
 
+CREATE TABLE IF NOT EXISTS raw.sellers_raw (
+    seller_id VARCHAR(32),
+    seller_zip_code_prefix INTEGER,
+    seller_city TEXT,
+    seller_state CHAR(2)
+);
 
+SELECT COUNT(*)
+FROM raw.sellers_raw;
+
+SELECT *
+FROM raw.sellers_raw   
+LIMIT 10;
