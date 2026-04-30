@@ -97,3 +97,21 @@ SELECT *
 FROM raw.products_raw
 LIMIT 10;
 
+CREATE TABLE IF NOT EXISTS raw.olist_reviews_raw (
+    review_id VARCHAR(32),
+    order_id VARCHAR(32),
+    review_score INTEGER,
+    review_comment_title TEXT,
+    review_comment_message TEXT,
+    review_creation_date TIMESTAMP,
+    review_answer_timestamp TIMESTAMP
+);
+
+SELECT COUNT(*)
+FROM raw.olist_reviews_raw;
+
+SELECT *
+FROM raw.olist_reviews_raw
+LIMIT 10;
+
+
