@@ -15,10 +15,10 @@ LIMIT 5;
 
 CREATE TABLE IF NOT EXISTS raw.geolocation_raw (
     geolocation_zip_code_prefix INTEGER,
-    geolocation_lat NUMERIC(10,8),
-    geolocation_lng NUMERIC(11,8),
+    geolocation_lat NUMERIC(10,8), --latitude values need fixed decimal precision --
+    geolocation_lng NUMERIC(11,8), --longitude values need fixed decimal precision and a slightly wider range --
     geolocation_city TEXT,
-    geolocation_state CHAR(2)
+    geolocation_state CHAR(2) -- brazilian states are represented by 2-letter codes, so CHAR(2) is sufficient --
 );
 
 SELECT COUNT(*) 
@@ -29,13 +29,13 @@ FROM raw.geolocation_raw
 LIMIT 10;
 
 CREATE TABLE IF NOT EXISTS raw.order_items_raw (
-    order_id VARCHAR(32),
+    order_id VARCHAR(32), -- olist IDs are fixed hash-like strings --
     order_item_id INTEGER,
-    product_id VARCHAR(32),
+    product_id VARCHAR(32), -- olist IDs are fixed hash-like strings --
     seller_id VARCHAR(32),
-    shipping_limit_date TIMESTAMP,
-    price NUMERIC(10,2),
-    freight_value NUMERIC(10,2)
+    shipping_limit_date TIMESTAMP, -- both date and time matter --
+    price NUMERIC(10,2), -- currency values should have fixed decimal precision --
+    freight_value NUMERIC(10,2) -- currency values should have fixed decimal precision --
 );
 
 SELECT COUNT(*) 
@@ -43,4 +43,22 @@ FROM raw.order_items_raw;
 
 SELECT * 
 FROM raw.order_items_raw 
+LIMIT 10;
+
+CREATE TABLE IF NOT EXISTS raw.orders_raw (
+    order_id VARCHAR(32),
+    customer_id VARCHAR(32),
+    order_status TEXT,
+    order_purchase_timestamp TIMESTAMP,
+    order_approved_at TIMESTAMP,
+    order_delivered_carrier_date TIMESTAMP,
+    order_delivered_customer_date TIMESTAMP,
+    order_estimated_delivery_date TIMESTAMP
+);
+
+SELECT COUNT(*)
+FROM raw.orders_raw;
+
+SELECT *
+FROM raw.orders_raw
 LIMIT 10;
