@@ -15,25 +15,29 @@ The database is designed to demonstrate:
 
 The project uses PostgreSQL as the primary database environment.
 
+---
+
 ## Schema Structure
 
 The database begins with a raw schema, where source files are loaded exactly as received, without business transformation.
 
-Future schemas will include:
+Planned schema layers include:
 
 * raw
 * staging
 * analytics
 
+---
+
 ## Dataset Families
 
-Three related dataset families are used in this project.
+Three related dataset families are maintained within the repository structure.
 
-### 1. Amazon Core Dataset (Olist Operational Commerce Data)
+### 1. Amazon Core Dataset *(Olist Operational Commerce Data)*
 
 This dataset represents transactional e-commerce operations and contains the core business entities required to model customer activity, order processing, logistics, payments, sellers, and product reference data.
 
-Tables loaded under this dataset family include:
+Tables currently loaded under this dataset family include:
 
 * customers_raw
 * geolocation_raw
@@ -45,14 +49,18 @@ Tables loaded under this dataset family include:
 * sellers_raw
 * product_category_name_translation_raw
 
+**Status:** Active dataset family for current project execution.
+
+---
+
 ### 2. Amazon Products Dataset
 
 This dataset family expands product-level information across multiple product categories and supports deeper product governance analysis through category-specific raw ingestion.
 
-Tables planned under this dataset family include:
+Tables available under this dataset family include:
 
 * amazon_audio_video_raw
-* amazon_camra_raw
+* amazon_camera_raw
 * amazon_cat_accessories_raw
 * amazon_laptop_raw
 * amazon_men_raw
@@ -68,11 +76,15 @@ This dataset family supports:
 * product attribute governance
 * cross-category comparison
 
+**Status:** Reserved for future expansion.
+
+---
+
 ### 3. Amazon Reviews Dataset
 
 This dataset family contains standalone review-level records intended to extend customer feedback analysis beyond the operational Olist review layer.
 
-Tables planned under this dataset family include:
+Tables available under this dataset family include:
 
 * amazon_reviews_raw
 
@@ -82,6 +94,10 @@ This dataset family supports:
 * text completeness checks
 * customer sentiment exploration
 * rating consistency assessment
+
+**Status:** Reserved for future expansion.
+
+---
 
 ## Raw Layer Design Principle
 
@@ -95,6 +111,8 @@ This means:
 * no primary keys or foreign keys are enforced at raw stage
 * data types are selected only to support safe ingestion
 
+---
+
 ## Why Raw Comes First
 
 The raw layer allows source data to be audited before transformation.
@@ -107,8 +125,10 @@ This makes it possible to:
 * validate source consistency
 * prepare controlled transformations into staging
 
+---
+
 ## Current Progress
 
 The Amazon Core dataset family has been fully loaded into the PostgreSQL raw schema.
 
-The next phase expands into Amazon Products and Amazon Reviews before controlled transformation begins.
+Current work now proceeds into staging using the active core dataset family.
