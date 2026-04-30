@@ -77,3 +77,23 @@ FROM raw.payment_raw;
 SELECT *
 FROM raw.payment_raw
 LIMIT 10;
+
+CREATE TABLE IF NOT EXISTS raw.products_raw (
+    product_id VARCHAR(32),
+    product_category_name TEXT,
+    product_name_lenght INTEGER, -- kept lenght as in the original dataset for raw fidelity --
+    product_description_lenght INTEGER,
+    product_photos_qty INTEGER,
+    product_weight_g INTEGER, -- Measurements --
+    product_length_cm INTEGER,
+    product_height_cm INTEGER,
+    product_width_cm INTEGER
+);
+
+SELECT COUNT(*)
+FROM raw.products_raw;
+
+SELECT *
+FROM raw.products_raw
+LIMIT 10;
+
