@@ -27,3 +27,20 @@ FROM raw.geolocation_raw;
 SELECT * 
 FROM raw.geolocation_raw 
 LIMIT 10;
+
+CREATE TABLE IF NOT EXISTS raw.order_items_raw (
+    order_id VARCHAR(32),
+    order_item_id INTEGER,
+    product_id VARCHAR(32),
+    seller_id VARCHAR(32),
+    shipping_limit_date TIMESTAMP,
+    price NUMERIC(10,2),
+    freight_value NUMERIC(10,2)
+);
+
+SELECT COUNT(*) 
+FROM raw.order_items_raw;
+
+SELECT * 
+FROM raw.order_items_raw 
+LIMIT 10;
