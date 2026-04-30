@@ -47,13 +47,13 @@ Source files loaded from the Amazon Core dataset family include:
 * `olist_sellers_raw.csv`
 * `product_category_name_translation_raw.csv`
 
-**Status:** Fully loaded into PostgreSQL raw schema.
+**Status:** Fully loaded into PostgreSQL raw schema and currently forms the active project scope.
 
 ---
 
 ### 2. Amazon Products Dataset
 
-Source files planned under the Amazon Products dataset family include:
+Source files available under the Amazon Products dataset family include:
 
 * `amazon_audio_video_raw.csv`
 * `amazon_camera_raw.csv`
@@ -65,17 +65,17 @@ Source files planned under the Amazon Products dataset family include:
 * `amazon_movies_raw.csv`
 * `amazon_toys_raw.csv`
 
-**Status:** Pending ingestion.
+**Status:** Available in repository for future expansion. Not currently loaded into raw schema.
 
 ---
 
 ### 3. Amazon Reviews Dataset
 
-Source files planned under the Amazon Reviews dataset family include:
+Source files available under the Amazon Reviews dataset family include:
 
 * `amazon_reviews_raw.csv`
 
-**Status:** Pending ingestion.
+**Status:** Available in repository for future expansion. Not currently loaded into raw schema.
 
 ---
 
@@ -106,4 +106,4 @@ Example:
 
 The Amazon Core dataset family has been fully loaded and validated.
 
-The next step is ingestion of Amazon Products and Amazon Reviews before staging begins.
+The next phase of the project begins with controlled transformation into staging.
