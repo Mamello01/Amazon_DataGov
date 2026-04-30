@@ -154,3 +154,4 @@ FROM raw.product_category_name_translation_raw;
 SELECT *
 FROM raw.product_category_name_translation_raw
 LIMIT 10;
+
