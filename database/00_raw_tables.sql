@@ -62,3 +62,18 @@ FROM raw.orders_raw;
 SELECT *
 FROM raw.orders_raw
 LIMIT 10;
+
+CREATE TABLE IF NOT EXISTS raw.payment_raw (
+    order_id VARCHAR(32),
+    payment_sequential INTEGER, -- the sequence of payments for a given order, starting at 1 --
+    payment_type TEXT,
+    payment_installments INTEGER, -- they should be whole numbers --
+    payment_value NUMERIC(10,2) -- currency values should have fixed decimal precision --
+);
+
+SELECT COUNT(*)
+FROM raw.payment_raw;
+
+SELECT *
+FROM raw.payment_raw
+LIMIT 10;
