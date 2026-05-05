@@ -11,10 +11,10 @@ CREATE TABLE IF NOT EXISTS staging.customers AS
 SELECT 
     TRIM(customer_id::TEXT) AS customer_id,
     TRIM(customer_unique_id::TEXT) AS customer_unique_id,
-    TRIM(customer_zip_code_prefix::TEXT) AS zip_code_prefix, --renamed for cleaner and less redundant naming --
-    TRIM(LOWER(customer_city::TEXT)) AS customer_city, --standardised to lowercase for consistency and stable joins with geolocation data --
-    TRIM(UPPER(customer_state::TEXT)) AS customer_state -- standardised to uppercase to enforce consistent two-letter state abbreviations --
-FROM raw.customers_raw
+    TRIM(customer_zip_code_prefix::TEXT) AS zip_code_prefix,
+    TRIM(LOWER(customer_city::TEXT)) AS customer_city,
+    TRIM(UPPER(customer_state::TEXT)) AS customer_state
+FROM raw.customers_raw;
 
 -- customer_id is the staged table"s primary key because it is complete, unique, and stable. 
 -- It is the most suitable identifier for joins and transformations in the data processing pipeline.
